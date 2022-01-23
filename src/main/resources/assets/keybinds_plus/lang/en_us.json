@@ -1,0 +1,27 @@
+{
+  "category.keybinds_plus.skins": "Keybinds Plus - Skin Settings",
+  "category.keybinds_plus.graphics": "Keybinds Plus - Video Settings",
+  "category.keybinds_plus.controls": "Keybinds Plus - Control Settings",
+  "category.keybinds_plus.audio": "Keybinds Plus - Audio Settings",
+
+  "key.keybinds_plus.toggle_cape": "Toggle Cape",
+  "key.keybinds_plus.toggle_hat": "Toggle Hat",
+  "key.keybinds_plus.toggle_jacket": "Toggle Jacket",
+  "key.keybinds_plus.toggle_left_pants_leg": "Toggle Left Pants Leg",
+  "key.keybinds_plus.toggle_left_sleeve": "Toggle Left Sleeve",
+  "key.keybinds_plus.toggle_right_pants_leg": "Toggle Right Pants Leg",
+  "key.keybinds_plus.toggle_right_sleeve": "Toggle Right Sleeve",
+
+  "key.keybinds_plus.decrease_brightness": "Decrease Brightness",
+  "key.keybinds_plus.increase_brightness": "Increase Brightness",
+
+  "key.keybinds_plus.decrease_fov": "Decrease FOV",
+  "key.keybinds_plus.increase_fov": "Increase FOV",
+
+  "key.keybinds_plus.toggle_view_bobbing": "Toggle View Bobbing",
+
+  "key.keybinds_plus.auto_jump": "Toggle Auto Jump",
+
+  "key.keybinds_plus.toggle_subtitles": "Toggle Subtitles",
+  "key.keybinds_plus.toggle_weather_sounds": "Toggle Weather Sounds"
+}

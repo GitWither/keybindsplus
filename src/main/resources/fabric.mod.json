@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "keybinds_plus",
+  "version": "${version}",
+  "name": "Keybinds Plus",
+  "description": "A small mod that allows you to configure keybinds for common actions",
+  "authors": [
+    "Daniel K."
+  ],
+  "contact": {
+    "discord": "https://discord.gg/WtdP245E8Q"
+  },
+  "license": "MIT",
+  "icon": "assets/keybinds_plus/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "daniel.keybinds_plus.client.KeybindsPlus"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.12.6",
+    "fabric": "*",
+    "minecraft": "1.18.*"
+  }
+}
