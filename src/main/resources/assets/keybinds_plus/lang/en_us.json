@@ -3,6 +3,15 @@
   "category.keybinds_plus.graphics": "Keybinds Plus - Video Settings",
   "category.keybinds_plus.controls": "Keybinds Plus - Control Settings",
   "category.keybinds_plus.audio": "Keybinds Plus - Audio Settings",
+  "category.keybinds_plus.camera": "Keybinds Plus - Camera Settings",
+
+  "key.keybinds_plus.set_first_person": "Set First Person",
+  "key.keybinds_plus.set_third_person": "Set Third Person",
+  "key.keybinds_plus.set_third_person_front": "Set Third Person Front",
+
+  "key.keybinds_plus.set_first_person_temp": "Set First Person Temporarily",
+  "key.keybinds_plus.set_third_person_temp": "Set Third Person Temporarily",
+  "key.keybinds_plus.set_third_person_front_temp": "Set Third Person Front Temporarily",
 
   "key.keybinds_plus.toggle_cape": "Toggle Cape",
   "key.keybinds_plus.toggle_hat": "Toggle Hat",
@@ -11,6 +20,7 @@
   "key.keybinds_plus.toggle_left_sleeve": "Toggle Left Sleeve",
   "key.keybinds_plus.toggle_right_pants_leg": "Toggle Right Pants Leg",
   "key.keybinds_plus.toggle_right_sleeve": "Toggle Right Sleeve",
+  "key.keybinds_plus.toggle_main_hand": "Toggle Main Hand",
 
   "key.keybinds_plus.decrease_brightness": "Decrease Brightness",
   "key.keybinds_plus.increase_brightness": "Increase Brightness",
@@ -23,5 +33,19 @@
   "key.keybinds_plus.auto_jump": "Toggle Auto Jump",
 
   "key.keybinds_plus.toggle_subtitles": "Toggle Subtitles",
-  "key.keybinds_plus.toggle_weather_sounds": "Toggle Weather Sounds"
+  "key.keybinds_plus.toggle_weather_sounds": "Toggle Weather Sounds",
+
+  "key.keybinds_plus.toggle_ambient": "Toggle Ambient Sounds",
+  "key.keybinds_plus.toggle_block": "Toggle Block Sounds",
+  "key.keybinds_plus.toggle_hostile": "Toggle Hostile Sounds",
+  "key.keybinds_plus.toggle_master": "Mute/Unmute All Sounds",
+  "key.keybinds_plus.toggle_music": "Toggle Music",
+  "key.keybinds_plus.toggle_neutral": "Toggle Neutral Sounds",
+  "key.keybinds_plus.toggle_player": "Toggle Player Sounds",
+  "key.keybinds_plus.toggle_record": "Toggle Record Sounds",
+  "key.keybinds_plus.toggle_weather": "Toggle Weather Sounds",
+  "key.keybinds_plus.toggle_voice": "Toggle Voice Sounds",
+
+  "key.keybinds_plus.increase_sensitivity": "Increase Sensitivity",
+  "key.keybinds_plus.decrease_sensitivity": "Decrease Sensitivity"
 }
