@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 
 import java.text.DecimalFormat;
 
@@ -58,30 +58,30 @@ public class GraphicsActions implements ActionType {
     @Override
     public void execute(MinecraftClient client) {
         while (toggleViewBobbing.wasPressed()) {
-            client.options.bobView = !client.options.bobView;
-            client.player.sendMessage(new LiteralText("View Bobbing " + (client.options.bobView ? "enabled" : "disabled")), true);
+            client.options.getBobView().setValue(!client.options.getBobView().getValue());
+            client.player.sendMessage(Text.literal("View Bobbing " + (client.options.getBobView().getValue() ? "enabled" : "disabled")), true);
         }
 
         while (increaseBrightnessKeybind.wasPressed()) {
-            client.options.gamma += 0.1;
-            client.player.sendMessage(new LiteralText("Brightness was increased to " + fovFormat.format(client.options.gamma)), true);
+            client.options.getGamma().setValue(client.options.getGamma().getValue() + 0.1);
+            client.player.sendMessage(Text.literal("Brightness was increased to " + fovFormat.format(client.options.getGamma().getValue())), true);
 
         }
 
         while (decreaseBrightnessKeybind.wasPressed()) {
-            client.options.gamma -= 0.1;
-            client.player.sendMessage(new LiteralText("Brightness was decreased to " + fovFormat.format(client.options.gamma)), true);
+            client.options.getGamma().setValue(client.options.getGamma().getValue() - 0.1);
+            client.player.sendMessage(Text.literal("Brightness was decreased to " + fovFormat.format(client.options.getGamma().getValue())), true);
 
         }
 
         while (increaseFovKeybind.wasPressed()) {
-            client.options.fov += 0.1;
-            client.player.sendMessage(new LiteralText("FOV was increased to " + fovFormat.format(client.options.fov)), true);
+            client.options.getFov().setValue(client.options.getFov().getValue() + 1);
+            client.player.sendMessage(Text.literal("FOV was increased to " + fovFormat.format(client.options.getFov().getValue())), true);
         }
 
         while (decreaseFovKeybind.wasPressed()) {
-            client.options.fov -= 0.1;
-            client.player.sendMessage(new LiteralText("FOV was decreased to " + fovFormat.format(client.options.fov)), true);
+            client.options.getFov().setValue(client.options.getFov().getValue() - 1);
+            client.player.sendMessage(Text.literal("FOV was decreased to " + fovFormat.format(client.options.getFov().getValue())), true);
         }
     }
 }

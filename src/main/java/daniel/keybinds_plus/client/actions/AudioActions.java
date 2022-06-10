@@ -6,7 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import org.apache.commons.lang3.StringUtils;
 
 public class AudioActions implements ActionType {
@@ -39,8 +39,8 @@ public class AudioActions implements ActionType {
     @Override
     public void execute(MinecraftClient client) {
         while (toggleSubtitlesKeybind.wasPressed()) {
-            client.options.showSubtitles = !client.options.showSubtitles;
-            client.player.sendMessage(new LiteralText("Subtitles " + (client.options.showSubtitles ? "enabled" : "disabled")), true);
+            client.options.getShowSubtitles().setValue(!client.options.getShowSubtitles().getValue());
+            client.player.sendMessage(Text.literal("Subtitles " + (client.options.getShowSubtitles().getValue() ? "enabled" : "disabled")), true);
         }
 
         for (int i = 0; i < soundCategoryKeybinds.length; i++) {
@@ -49,16 +49,16 @@ public class AudioActions implements ActionType {
 
                 if (currentSoundVolume == 0 && previousVolumes[i] == 0) {
                     client.options.setSoundVolume(soundCategories[i], 1f);
-                    client.player.sendMessage(new LiteralText(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
+                    client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
                 }
                 else if (currentSoundVolume > 0) {
                     previousVolumes[i] = currentSoundVolume;
                     client.options.setSoundVolume(soundCategories[i], 0);
-                    client.player.sendMessage(new LiteralText(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was muted"), true);
+                    client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was muted"), true);
                 }
                 else if (currentSoundVolume == 0 && previousVolumes[i] > 0) {
                     client.options.setSoundVolume(soundCategories[i], previousVolumes[i]);
-                    client.player.sendMessage(new LiteralText(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
+                    client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
                 }
             }
         }
