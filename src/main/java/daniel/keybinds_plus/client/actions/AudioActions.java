@@ -48,16 +48,16 @@ public class AudioActions implements ActionType {
                 float currentSoundVolume = client.options.getSoundVolume(soundCategories[i]);
 
                 if (currentSoundVolume == 0 && previousVolumes[i] == 0) {
-                    client.options.setSoundVolume(soundCategories[i], 1f);
+                    client.getSoundManager().updateSoundVolume(soundCategories[i], 1f);
                     client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
                 }
                 else if (currentSoundVolume > 0) {
                     previousVolumes[i] = currentSoundVolume;
-                    client.options.setSoundVolume(soundCategories[i], 0);
+                    client.getSoundManager().updateSoundVolume(soundCategories[i], 0);
                     client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was muted"), true);
                 }
                 else if (currentSoundVolume == 0 && previousVolumes[i] > 0) {
-                    client.options.setSoundVolume(soundCategories[i], previousVolumes[i]);
+                    client.getSoundManager().updateSoundVolume(soundCategories[i], previousVolumes[i]);
                     client.player.sendMessage(Text.literal(StringUtils.capitalize(soundCategories[i].getName()) + " sound source was resumed"), true);
                 }
             }
