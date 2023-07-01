@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 
 import java.text.DecimalFormat;
 
@@ -44,16 +44,16 @@ public class ControlsActions implements ActionType {
     @Override
     public void execute(MinecraftClient client) {
         while (increaseSensitivity.wasPressed()) {
-            client.options.mouseSensitivity += 0.005;
-            client.player.sendMessage(new LiteralText("Sensitivity was increased to " + sensitivityFormat.format(client.options.mouseSensitivity)), true);
+            client.options.getMouseSensitivity().setValue(client.options.getMouseSensitivity().getValue() + 0.005);
+            client.player.sendMessage(Text.literal("Sensitivity was increased to " + sensitivityFormat.format(client.options.getMouseSensitivity().getValue())), true);
         }
         while (decreaseSensitivity.wasPressed()) {
-            client.options.mouseSensitivity -= 0.005;
-            client.player.sendMessage(new LiteralText("Sensitivity was decreased to " + sensitivityFormat.format(client.options.mouseSensitivity)), true);
+            client.options.getMouseSensitivity().setValue(client.options.getMouseSensitivity().getValue() - 0.005);
+            client.player.sendMessage(Text.literal("Sensitivity was decreased to " + sensitivityFormat.format(client.options.getMouseSensitivity().getValue())), true);
         }
         while (autoJumpKeybind.wasPressed()) {
-            client.options.autoJump = !client.options.autoJump;
-            client.player.sendMessage(new LiteralText("Auto Jump " + (client.options.autoJump ? "enabled" : "disabled")), true);
+            client.options.getAutoJump().setValue(!client.options.getAutoJump().getValue());
+            client.player.sendMessage(Text.literal("Auto Jump " + (client.options.getAutoJump().getValue() ? "enabled" : "disabled")), true);
         }
     }
 }

@@ -15,8 +15,8 @@ import net.minecraft.client.option.Perspective;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
@@ -28,21 +28,29 @@ public class KeybindsPlus implements ClientModInitializer {
 
     private static final String BASE_CATEGORY = "category.keybinds_plus.";
 
+    public static final String SCROLL_MODIFIER_CATEGORY = BASE_CATEGORY + "scroll_modifiers";
     public static final String SKIN_CATEGORY = BASE_CATEGORY + "skins";
     public static final String CONTROLS_CATEGORY = BASE_CATEGORY + "controls";
     public static final String AUDIO_CATEGORY = BASE_CATEGORY + "audio";
     public static final String GRAPHICS_CATEGORY = BASE_CATEGORY + "graphics";
     public static final String CAMERA_CATEGORY = BASE_CATEGORY + "camera";
 
+    public static GraphicsActions graphicsActions = new GraphicsActions();
+
     public ActionType[] actionTypes = new ActionType[] {
-      new AudioActions(),
-      new CameraActions(),
-      new ControlsActions(),
-      new GraphicsActions(),
-      new SkinActions()
+            new AudioActions(),
+            new CameraActions(),
+            new ControlsActions(),
+            graphicsActions,
+            new SkinActions()
     };
 
-
+    public static KeyBinding scrollModifierFov = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+            "key.keybinds_plus.change_fov",
+            InputUtil.Type.KEYSYM,
+            GLFW.GLFW_KEY_V,
+            SCROLL_MODIFIER_CATEGORY
+    ));
 
     @Override
     public void onInitializeClient() {
@@ -55,7 +63,7 @@ public class KeybindsPlus implements ClientModInitializer {
             //this is a bit cringe
             if (((SkinActions)actionTypes[4]).isAnySet() && client != null) {
                 client.player.sendMessage(
-                        new LiteralText("WARNING: Using skin toggling settings may trigger anti-cheat plugins!")
+                        Text.literal("WARNING: Using skin toggling settings may trigger anti-cheat plugins!")
                                 .setStyle(Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.RED))),
                         false
                 );
