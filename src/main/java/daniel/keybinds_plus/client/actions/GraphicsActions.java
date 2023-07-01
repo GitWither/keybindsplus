@@ -74,8 +74,16 @@ public class GraphicsActions implements ActionType {
 
         }
 
-        while (increaseFovKeybind.wasPressed()) changeFov(client, +1);
-        while (decreaseFovKeybind.wasPressed()) changeFov(client, -1);
+        while (increaseFovKeybind.wasPressed()) increaseFov(client);
+        while (decreaseFovKeybind.wasPressed()) decreaseFov(client);
+    }
+
+    public void increaseFov(MinecraftClient client) {
+        changeFov(client, +1);
+    }
+
+    public void decreaseFov(MinecraftClient client) {
+        changeFov(client, -1);
     }
 
     public void changeFov(MinecraftClient client, int delta) {
