@@ -74,14 +74,20 @@ public class GraphicsActions implements ActionType {
 
         }
 
-        while (increaseFovKeybind.wasPressed()) {
-            client.options.getFov().setValue(client.options.getFov().getValue() + 1);
-            client.player.sendMessage(Text.literal("FOV was increased to " + fovFormat.format(client.options.getFov().getValue())), true);
-        }
+        while (increaseFovKeybind.wasPressed()) changeFov(client, +1);
+        while (decreaseFovKeybind.wasPressed()) changeFov(client, -1);
+    }
 
-        while (decreaseFovKeybind.wasPressed()) {
-            client.options.getFov().setValue(client.options.getFov().getValue() - 1);
-            client.player.sendMessage(Text.literal("FOV was decreased to " + fovFormat.format(client.options.getFov().getValue())), true);
+    public void changeFov(MinecraftClient client, int delta) {
+        int oldValue = client.options.getFov().getValue();
+        int expectedValue = oldValue + delta;
+        client.options.getFov().setValue(expectedValue);
+        if (expectedValue != client.options.getFov().getValue()) {
+            client.options.getFov().setValue(oldValue);
+        }
+        else {
+            client.player.sendMessage(Text.literal(String.format("FOV was %s to %s",
+                    delta > 0 ? "increased" : "decreased", fovFormat.format(client.options.getFov().getValue()))), true);
         }
     }
 }
