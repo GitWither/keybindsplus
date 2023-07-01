@@ -6,7 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Arm;
 
 public class SkinActions implements ActionType {
@@ -36,9 +36,9 @@ public class SkinActions implements ActionType {
     @Override
     public void execute(MinecraftClient client) {
         while (toggleMainHandKeybind.wasPressed()) {
-            client.options.mainArm = client.options.mainArm == Arm.LEFT ? Arm.RIGHT : Arm.LEFT;
+            client.options.getMainArm().setValue(client.options.getMainArm().getValue() == Arm.LEFT ? Arm.RIGHT : Arm.LEFT);
             client.options.sendClientSettings();
-            client.player.sendMessage(new LiteralText("Main hand set to " + client.options.mainArm.getOptionName().getString()), true);
+            client.player.sendMessage(Text.literal("Main hand set to " + client.options.getMainArm().getValue().toString()), true);
         }
 
         for (int i = 0; i < skinKeybinds.length; i++) {
@@ -48,7 +48,7 @@ public class SkinActions implements ActionType {
                 PlayerModelPart part = PlayerModelPart.values()[i];
                 boolean enabled = client.options.isPlayerModelPartEnabled(part);
                 client.options.togglePlayerModelPart(part, !enabled);
-                client.player.sendMessage(new LiteralText(part.getOptionName().getString() +" " + (enabled ? "enabled" : "disabled")), true);
+                client.player.sendMessage(Text.literal(part.getOptionName().getString() + " " + (enabled ? "enabled" : "disabled")), true);
             }
         }
     }
