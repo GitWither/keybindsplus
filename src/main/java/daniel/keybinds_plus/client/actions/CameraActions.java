@@ -6,7 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.Perspective;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 
 public class CameraActions implements ActionType {
     private Perspective lastPerspective = Perspective.FIRST_PERSON;
@@ -72,17 +72,17 @@ public class CameraActions implements ActionType {
     public void execute(MinecraftClient client) {
         while (firstPersonKeybind.wasPressed()) {
             client.options.setPerspective(Perspective.FIRST_PERSON);
-            client.player.sendMessage(new LiteralText("Perspective set to " + client.options.getPerspective().name()), true);
+            client.player.sendMessage(Text.literal("Perspective set to " + client.options.getPerspective().name()), true);
         }
 
         while (thirdPersonKeybind.wasPressed()) {
             client.options.setPerspective(Perspective.THIRD_PERSON_BACK);
-            client.player.sendMessage(new LiteralText("Perspective set to " + client.options.getPerspective().name()), true);
+            client.player.sendMessage(Text.literal("Perspective set to " + client.options.getPerspective().name()), true);
         }
 
         while (thirdPersonFrontKeybind.wasPressed()) {
             client.options.setPerspective(Perspective.THIRD_PERSON_FRONT);
-            client.player.sendMessage(new LiteralText("Perspective set to " + client.options.getPerspective().name()), true);
+            client.player.sendMessage(Text.literal("Perspective set to " + client.options.getPerspective().name()), true);
         }
 
         if (!holdingFirstPerson && !holdingThirdPersonFront && !holdingThirdPerson && tempFirstPersonKeybind.isPressed()) {

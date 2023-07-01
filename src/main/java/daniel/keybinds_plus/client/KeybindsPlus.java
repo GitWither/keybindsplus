@@ -15,8 +15,8 @@ import net.minecraft.client.option.Perspective;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
@@ -55,7 +55,7 @@ public class KeybindsPlus implements ClientModInitializer {
             //this is a bit cringe
             if (((SkinActions)actionTypes[4]).isAnySet() && client != null) {
                 client.player.sendMessage(
-                        new LiteralText("WARNING: Using skin toggling settings may trigger anti-cheat plugins!")
+                        Text.literal("WARNING: Using skin toggling settings may trigger anti-cheat plugins!")
                                 .setStyle(Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.RED))),
                         false
                 );
