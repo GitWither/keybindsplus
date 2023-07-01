@@ -4,6 +4,7 @@
   "category.keybinds_plus.controls": "Keybinds Plus - Control Settings",
   "category.keybinds_plus.audio": "Keybinds Plus - Audio Settings",
   "category.keybinds_plus.camera": "Keybinds Plus - Camera Settings",
+  "category.keybinds_plus.scroll_modifiers": "Keybinds Plus - Scroll Modifier Keys",
 
   "key.keybinds_plus.set_first_person": "Set First Person",
   "key.keybinds_plus.set_third_person": "Set Third Person",
@@ -47,5 +48,7 @@
   "key.keybinds_plus.toggle_voice": "Toggle Voice Sounds",
 
   "key.keybinds_plus.increase_sensitivity": "Increase Sensitivity",
-  "key.keybinds_plus.decrease_sensitivity": "Decrease Sensitivity"
+  "key.keybinds_plus.decrease_sensitivity": "Decrease Sensitivity",
+
+  "key.keybinds_plus.change_fov": "Change FOV"
 }
